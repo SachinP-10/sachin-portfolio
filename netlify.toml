@@ -1,3 +1,11 @@
 [build]
   command = "npm run build"
   publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Explicitly enable the Next.js runtime so pages and API routes are served
+# by Netlify Functions instead of being treated as static files.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
