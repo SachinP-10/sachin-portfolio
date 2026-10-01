@@ -11,8 +11,8 @@ import { SiLeetcode } from "react-icons/si";
 
 function HeroSection() {
   const skills = [
-    "Java", "C++", "SQL", "SQLite", "Redis", 
-    "Microservices", "Hibernate", "Docker", "REST API", "JWT"
+    "Java", "C++", "SQL", "SQLite", "Spring Boot", 
+    "Microservices", "Hibernate", "Docker", "JAP", "JWT"
   ];
 
   return (
