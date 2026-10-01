@@ -9,13 +9,20 @@ import Projects from "./components/homepage/projects";
 import Skills from "./components/homepage/skills";
 
 async function getData() {
-  const res = await fetch(`https://dev.to/api/articles?username=${personalData.devUsername}`)
+  let data = [];
+  try {
+    const res = await fetch(`https://dev.to/api/articles?username=${personalData.devUsername}`)
 
-  if (!res.ok) {
-    throw new Error('Failed to fetch data')
+    if (!res.ok) {
+      throw new Error(`Failed to fetch data: ${res.status}`)
+    }
+
+    data = await res.json();
+  } catch (error) {
+    // Don't fail the build/render when dev.to is unavailable or rate limited
+    console.error(error);
+    return [];
   }
-
-  const data = await res.json();
 
   const filtered = data.filter((item) => item?.cover_image).sort(() => Math.random() - 0.5);
 
