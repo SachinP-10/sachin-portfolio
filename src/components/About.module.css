@@ -1,0 +1,114 @@
+.grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+}
+
+.eyebrow {
+  margin-bottom: 1.25rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--teal);
+}
+
+.para {
+  font-size: clamp(1rem, 1.6vw, 1.12rem);
+  color: #d1d8e6;
+  max-width: 40rem;
+}
+
+.para + .para {
+  margin-top: 1rem;
+}
+
+.facts {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.facts li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+.facts svg {
+  color: var(--pink);
+  flex: none;
+}
+
+.facts a:hover {
+  color: var(--teal);
+}
+
+.photoWrap {
+  display: flex;
+  justify-content: center;
+}
+
+.photo {
+  width: min(300px, 70vw);
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius);
+  filter: grayscale(1);
+  transition: filter 0.9s ease, scale 0.9s ease;
+  cursor: pointer;
+}
+
+.photo:hover {
+  filter: grayscale(0);
+  scale: 1.06;
+}
+
+/* Vertical "About me" tag on the right edge (desktop only) */
+.sideLabel {
+  position: absolute;
+  top: 0;
+  right: -2.75rem;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sideLabel span {
+  writing-mode: vertical-rl;
+  padding: 1rem 0.5rem;
+  border-radius: var(--radius-sm);
+  background: var(--pill);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.sideLabel i {
+  width: 2px;
+  height: 8rem;
+  background: var(--pill);
+}
+
+@media (min-width: 1320px) {
+  .sideLabel {
+    display: flex;
+  }
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .photoWrap {
+    order: -1;
+  }
+}
